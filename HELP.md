@@ -12,15 +12,15 @@ Tools such as HackBGRT replace the logo Windows shows while it boots. They never
 ## The advanced way: change the firmware POST logo
 
 1. **Back up first.** Dump your BIOS region and keep the file somewhere safe. Without a backup, you have nothing to roll back to.
-2. Build a patched image:
+2. Build a patched image. Use `tools/patch_ami_logo.py` for any AMI Aptio board, or `tools/patch_logo.py` for the ASUS B360-PLUS only:
    ```
-   python -I tools/patch_logo.py region_dump.bin logos/ibm-thinkpad/ibm_thinkpad_672x378.bmp patched.bin
+   python -I tools/patch_ami_logo.py region_dump.bin logos/ibm-thinkpad/ibm_thinkpad_672x378.bmp patched.bin
    ```
    Along with `patched.bin`, this writes `patched.bin.window` and prints the flash address and length to use.
 3. Flash only the window file at the address the script printed, using your board's flashing tool.
 4. Fully power off the PC: shut down, switch off the power supply or unplug it, wait about 10 seconds, then boot.
 
-`patch_logo.py` was written for the **ASUS PRIME B360-PLUS, BIOS 3101**. On any other board or BIOS version it stops with an assertion error. That's on purpose: you'd need to adapt the offsets for your board.
+`patch_ami_logo.py` refuses to patch if it cannot find exactly one logo file in the expected layout, or if the new logo is too big. `patch_logo.py` only runs on the **ASUS PRIME B360-PLUS, BIOS 3101**.
 
 ## Troubleshooting
 

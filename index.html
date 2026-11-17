@@ -4,69 +4,106 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IBM Boot Logos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#0b0f1a; --card:#141a2a; --fg:#e8ecf4; --muted:#9aa5bd; --accent:#4a8cff; }
+  :root { --bg:#0b0f1a; --card:#141a2a; --line:#232c44; --fg:#e8ecf4; --muted:#9aa5bd; --accent:#4a8cff; }
   * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 "IBM Plex Sans", system-ui, sans-serif; }
   main { max-width:1100px; margin:0 auto; padding:40px 16px 64px; }
-  h1 { font-family:"Courier New", monospace; letter-spacing:.04em; margin:0 0 6px; font-size:clamp(1.6rem,4vw,2.4rem); }
+  h1, h2, h3, code, .tag { font-family:"IBM Plex Mono", ui-monospace, monospace; }
+  h1 { letter-spacing:.02em; margin:0 0 6px; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:600; }
+  h2.section { font-size:1.15rem; font-weight:600; margin:48px 0 16px; padding-bottom:8px; border-bottom:1px solid var(--line); }
   .sub { color:var(--muted); margin:0 0 32px; max-width:70ch; }
+  .hero { margin:0 0 12px; display:grid; grid-template-columns:minmax(0,420px) 1fr; gap:24px; align-items:center; }
+  .hero img { width:100%; border-radius:10px; border:1px solid var(--line); display:block; }
+  .hero h2 { margin:0 0 8px; font-size:1.3rem; font-weight:600; }
+  .hero p { margin:0 0 14px; color:var(--muted); }
   .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
-  .card { background:var(--card); border-radius:10px; overflow:hidden; border:1px solid #232c44; }
-  .card img { display:block; width:100%; aspect-ratio:672/378; object-fit:contain; background:#000; image-rendering:pixelated; }
+  .card { background:var(--card); border-radius:10px; overflow:hidden; border:1px solid var(--line); }
+  .card img { display:block; width:100%; aspect-ratio:672/378; object-fit:contain; background:#000; }
   .body { padding:14px 16px 16px; }
-  .body h2 { margin:0 0 4px; font-size:1.05rem; }
+  .body h3 { margin:0 0 4px; font-size:1rem; font-weight:600; }
   .body p { margin:0 0 12px; color:var(--muted); font-size:.92rem; }
   .dl { display:flex; gap:10px; flex-wrap:wrap; }
-  a.btn { color:#fff; background:var(--accent); text-decoration:none; padding:6px 12px; border-radius:6px; font-size:.88rem; }
+  a.btn { color:#fff; background:var(--accent); text-decoration:none; padding:6px 12px; border-radius:6px; font-size:.88rem; font-weight:500; }
   a.btn.alt { background:#2a3550; }
-  .warn { margin-top:36px; padding:16px; border-left:3px solid #e0a030; background:#1a1810; color:#e6d9b8; border-radius:6px; font-size:.92rem; }
+  .machines { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; }
+  .machine { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; }
+  .machine h3 { margin:0 0 6px; font-size:1rem; font-weight:600; }
+  .machine p { margin:0; color:var(--muted); font-size:.9rem; }
+  .tag { display:inline-block; font-size:.72rem; padding:2px 8px; border-radius:999px; margin-bottom:8px; }
+  .done { background:#12351f; color:#7fe0a0; }
+  .soon { background:#3a2e10; color:#f0c860; }
+  .warn { margin-top:40px; padding:16px; border-left:3px solid #e0a030; background:#1a1810; color:#e6d9b8; border-radius:6px; font-size:.92rem; }
+  code { font-size:.88em; background:#1d2438; padding:1px 5px; border-radius:4px; }
   footer { margin-top:28px; color:var(--muted); font-size:.82rem; }
   a { color:var(--accent); }
-  .hero { margin:0 0 36px; display:grid; grid-template-columns:minmax(0,420px) 1fr; gap:24px; align-items:center; }
-  .hero img { width:100%; border-radius:10px; border:1px solid #232c44; display:block; }
-  .hero h2 { margin:0 0 8px; font-size:1.3rem; }
-  .hero p { margin:0; color:var(--muted); }
   @media (max-width:700px) { .hero { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
 <main>
   <h1>IBM Boot Logos</h1>
-  <p class="sub">Retro IBM boot logos for PCs with AMI UEFI firmware. Each one is a 672×378 24-bit BMP, ready to use as a POST splash screen or a Windows boot logo. The patch script and the full instructions are in the <a href="README.md">README</a>.</p>
-
+  <p class="sub">Retro IBM boot logos and the tools to put them into AMI UEFI firmware. They've been tested on ThinkPads and ASUS desktop boards. Each logo is a 24-bit BMP, ready to use as a POST splash screen or as a Windows boot logo. The full instructions are in the <a href="https://github.com/syntaxapproval/ibm-boot-logos#readme">README</a> and the <a href="https://github.com/syntaxapproval/ibm-boot-logos/blob/main/HELP.md">help file</a>.</p>
 
   <figure class="hero">
     <img src="photos/thinkpad_x210ai_eye_bee_m.png" alt="ThinkPad X210Ai booting with the colourful Eye-Bee-M rebus logo on a dark screen">
-    <figcaption><h2>On real hardware</h2><p>A ThinkPad X210Ai shows Paul Rand's Eye-Bee-M rebus as it boots. It's the same kind of firmware splash-screen swap this project does on ASUS desktop boards.</p></figcaption>
+    <figcaption>
+      <h2>Eye-Bee-M on a ThinkPad X210Ai</h2>
+      <p>This is Paul Rand's 1981 Eye-Bee-M rebus, flashed into the X210Ai's own firmware. It shows from the moment the laptop powers on.</p>
+      <div class="dl"><a class="btn" href="logos/eye-bee-m/eye_bee_m_580x156.bmp" download>BMP 580×156</a><a class="btn" href="logos/eye-bee-m/eye_bee_m_1160x312.bmp" download>BMP 1160×312 (2×)</a><a class="btn alt" href="logos/eye-bee-m/eye_bee_m_672x378.bmp" download>BMP 672×378</a></div>
+    </figcaption>
   </figure>
 
+  <h2 class="section">Logos</h2>
   <div class="grid">
     <div class="card">
+      <img src="logos/eye-bee-m/eye_bee_m_672x378.png" alt="Eye, bee and IBM M rebus on black">
+      <div class="body"><h3>Eye-Bee-M</h3><p>Paul Rand's rebus. The 580×156 version matches the X210Ai's stock logo size, and the 2× version suits high-resolution screens.</p>
+        <div class="dl"><a class="btn" href="logos/eye-bee-m/eye_bee_m_580x156.bmp" download>580×156</a><a class="btn" href="logos/eye-bee-m/eye_bee_m_1160x312.bmp" download>1160×312</a><a class="btn alt" href="logos/eye-bee-m/eye_bee_m_672x378.bmp" download>672×378</a></div></div>
+    </div>
+    <div class="card">
       <img src="logos/ibm-thinkpad/ibm_thinkpad_672x378.png" alt="Tilted red, green and blue IBM logo with ThinkPad wordmark on black">
-      <div class="body"><h2>IBM ThinkPad</h2><p>The classic tilted rainbow IBM with the ThinkPad wordmark.</p>
+      <div class="body"><h3>IBM ThinkPad</h3><p>The classic tilted rainbow IBM with the ThinkPad wordmark.</p>
         <div class="dl"><a class="btn" href="logos/ibm-thinkpad/ibm_thinkpad_672x378.bmp" download>BMP</a><a class="btn alt" href="logos/ibm-thinkpad/ibm_thinkpad_672x378.png" download>PNG</a></div></div>
     </div>
     <div class="card">
       <img src="logos/ibm-8bar-aptiva/ibm_8bar_672x378.png" alt="Blue 8-bar IBM logo on black">
-      <div class="body"><h2>IBM 8-bar (Aptiva BIOS)</h2><p>The original bitmap, extracted from an IBM Aptiva 2137 BIOS and drawn 1:1.</p>
+      <div class="body"><h3>IBM 8-bar (Aptiva BIOS)</h3><p>The original bitmap, extracted from an IBM Aptiva 2137 BIOS and drawn 1:1.</p>
         <div class="dl"><a class="btn" href="logos/ibm-8bar-aptiva/ibm_8bar_672x378.bmp" download>BMP</a><a class="btn alt" href="logos/ibm-8bar-aptiva/ibm_8bar_original_560x245.png" download>Original 560×245</a></div></div>
     </div>
     <div class="card">
       <img src="logos/aptiva-2139/aptiva2139_672x378.png" alt="Navy Aptiva boot screen with several IBM logos">
-      <div class="body"><h2>Aptiva 2139 boot screen</h2><p>A rebuild of the IBM Aptiva 2139-E5Y startup screen, made with the genuine IBM bitmap.</p>
+      <div class="body"><h3>Aptiva 2139 boot screen</h3><p>A rebuild of the IBM Aptiva 2139-E5Y startup screen, made with the genuine IBM bitmap.</p>
         <div class="dl"><a class="btn" href="logos/aptiva-2139/aptiva2139_672x378.bmp" download>BMP</a><a class="btn alt" href="logos/aptiva-2139/aptiva2139_640x480.png" download>640×480 PNG</a></div></div>
     </div>
     <div class="card">
       <img src="logos/ibm-navy/ibm_navy_672x378.png" alt="Light blue 8-bar IBM logo on navy">
-      <div class="body"><h2>IBM navy</h2><p>The 8-bar IBM on a navy background.</p>
+      <div class="body"><h3>IBM navy</h3><p>The 8-bar IBM on a navy background.</p>
         <div class="dl"><a class="btn" href="logos/ibm-navy/ibm_navy_672x378.bmp" download>BMP</a><a class="btn alt" href="logos/ibm-navy/ibm_navy_672x378.png" download>PNG</a></div></div>
     </div>
   </div>
 
-  <div class="warn"><strong>Flashing firmware is at your own risk.</strong> The included <code>tools/patch_logo.py</code> was written for the ASUS PRIME B360-PLUS (BIOS 3101), and it refuses to run on other dumps unless you adapt it. Always keep a backup of your own BIOS region. If you want something safer, a Windows boot-logo tool such as HackBGRT changes the logo without touching the firmware.</div>
+  <h2 class="section">Machines</h2>
+  <div class="machines">
+    <div class="machine"><span class="tag done">done</span><h3>ThinkPad X210Ai</h3><p>AMI Aptio V with Boot Guard on. The logo file sits outside the Boot Guard–protected area, so it can be patched. It was patched the same way <code>patch_ami_logo.py</code> works, and only the changed 4 KB blocks were flashed with <code>flashrom -l layout -i logo</code>.</p></div>
+    <div class="machine"><span class="tag done">done</span><h3>ASUS PRIME B360-PLUS / B360M-A</h3><p>The firmware logo was flashed with Intel FPT, writing only the logo window. Every 672×378 logo fits except Eye-Bee-M, which is about 11 KB too big for this board's logo space.</p></div>
+    <div class="machine"><span class="tag soon">coming soon</span><h3>ThinkPad T530</h3><p>Next on the list.</p></div>
+    <div class="machine"><span class="tag soon">coming soon</span><h3>ThinkPad T480s</h3><p>Next on the list.</p></div>
+  </div>
 
-  <footer>IBM, ThinkPad and Aptiva are trademarks of IBM and/or Lenovo. This is an unofficial fan project, with no affiliation or endorsement. The scripts are MIT licensed.</footer>
+  <h2 class="section">Tools</h2>
+  <div class="machines">
+    <div class="machine"><h3>patch_ami_logo.py</h3><p>Works on any AMI Aptio board. It finds the logo file, re-packs your BMP and outputs a small window to flash, with ready-to-use FPT and flashrom commands.</p><p style="margin-top:10px"><a class="btn" href="tools/patch_ami_logo.py" download>Download</a></p></div>
+    <div class="machine"><h3>patch_logo.py</h3><p>The original version for the ASUS PRIME B360-PLUS BIOS 3101 only. It refuses to run on any other board or BIOS version.</p><p style="margin-top:10px"><a class="btn alt" href="tools/patch_logo.py" download>Download</a></p></div>
+    <div class="machine"><h3>acer_unpack.py / acer_logo.py</h3><p>Unpack 1997-era Acer/IBM Aptiva BIOS images and decode their RLE logos.</p><p style="margin-top:10px"><a class="btn alt" href="tools/acer_unpack.py" download>unpack</a> <a class="btn alt" href="tools/acer_logo.py" download>logo</a></p></div>
+  </div>
+
+  <div class="warn"><strong>Flashing firmware is at your own risk.</strong> Keep a backup of your own BIOS. On boards with Boot Guard, first check that the logo isn't inside the protected area, or the board won't boot. If you'd rather not touch the firmware, HackBGRT can change the Windows boot logo instead.</div>
+
+  <footer>IBM, ThinkPad and Aptiva are trademarks of IBM and/or Lenovo. This is an unofficial fan project, with no affiliation or endorsement. The Eye-Bee-M artwork is by Paul Rand, via Wikimedia Commons (public domain, trademarked). The scripts are MIT licensed.</footer>
 </main>
 </body>
 </html>
