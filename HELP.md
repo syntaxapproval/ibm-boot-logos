@@ -1,0 +1,38 @@
+# Help
+
+## Which file do I need?
+
+- **Logo for a UEFI board or a Windows boot-logo tool:** use the `.bmp` from the logo's folder in `logos/`. Every BMP is 672×378, 24-bit and uncompressed.
+- **Just looking or sharing:** use the `.png` previews.
+
+## The safe way: change the Windows boot logo only
+
+Tools such as HackBGRT replace the logo Windows shows while it boots. They never touch the firmware, and you can undo them by uninstalling. If you're unsure which route to take, start here.
+
+## The advanced way: change the firmware POST logo
+
+1. **Back up first.** Dump your BIOS region and keep the file somewhere safe. Without a backup, you have nothing to roll back to.
+2. Build a patched image:
+   ```
+   python -I tools/patch_logo.py region_dump.bin logos/ibm-thinkpad/ibm_thinkpad_672x378.bmp patched.bin
+   ```
+   Along with `patched.bin`, this writes `patched.bin.window` and prints the flash address and length to use.
+3. Flash only the window file at the address the script printed, using your board's flashing tool.
+4. Fully power off the PC: shut down, switch off the power supply or unplug it, wait about 10 seconds, then boot.
+
+`patch_logo.py` was written for the **ASUS PRIME B360-PLUS, BIOS 3101**. On any other board or BIOS version it stops with an assertion error. That's on purpose: you'd need to adapt the offsets for your board.
+
+## Troubleshooting
+
+| Problem | What to try |
+|---|---|
+| `New logo does not fit in the existing space` | Use a simpler image. Flat colours and large solid areas compress best. |
+| The logo is blank or the stock logo still shows | Your firmware's LZMA decoder may not accept an end marker. Re-encode without one (EDK2-style), or roll back from your backup. |
+| The flash tool refuses to write (for example FPT error 167) | BIOS Lock or flash protection is on. Some boards let you turn it off temporarily. Turn it back on afterwards. |
+| The board won't POST | Flash your backup back. If that isn't possible, you'll need a hardware programmer or the board's BIOS FlashBack feature. |
+
+## Credits
+
+The logo extraction, rebuilds and patch tools were made with help from **Claude** (Anthropic).
+
+IBM, ThinkPad and Aptiva are trademarks of IBM and/or Lenovo. This is an unofficial fan project.

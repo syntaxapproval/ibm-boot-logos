@@ -2,7 +2,7 @@
 
 These are retro IBM boot logos that replace the POST/BIOS splash screen on an AMI UEFI board. I used them on ASUS B360 motherboards, but any board that takes a 672×378 24-bit BMP logo can use them.
 
-**Gallery:** see `index.html`, or the GitHub Pages site for this repo.
+**Gallery:** see `index.html`, or the GitHub Pages site for this repo. **Help and troubleshooting:** see [HELP.md](HELP.md).
 
 | Logo | File | Notes |
 |---|---|---|
