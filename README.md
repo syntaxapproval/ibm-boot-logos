@@ -2,6 +2,10 @@
 
 These are retro IBM boot logos that replace the POST/BIOS splash screen on an AMI UEFI board. I used them on ASUS B360 motherboards, but any board that takes a 672×378 24-bit BMP logo can use them.
 
+![ThinkPad X210Ai booting with the Eye-Bee-M logo](photos/thinkpad_x210ai_eye_bee_m.png)
+
+*A ThinkPad X210Ai booting with Paul Rand's Eye-Bee-M rebus logo.*
+
 **Gallery:** see `index.html`, or the GitHub Pages site for this repo. **Help and troubleshooting:** see [HELP.md](HELP.md).
 
 | Logo | File | Notes |
