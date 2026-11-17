@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IBM Boot Logos</title>
+<style>
+  :root { --bg:#0b0f1a; --card:#141a2a; --fg:#e8ecf4; --muted:#9aa5bd; --accent:#4a8cff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:40px 16px 64px; }
+  h1 { font-family:"Courier New", monospace; letter-spacing:.04em; margin:0 0 6px; font-size:clamp(1.6rem,4vw,2.4rem); }
+  .sub { color:var(--muted); margin:0 0 32px; max-width:70ch; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
+  .card { background:var(--card); border-radius:10px; overflow:hidden; border:1px solid #232c44; }
+  .card img { display:block; width:100%; aspect-ratio:672/378; object-fit:contain; background:#000; image-rendering:pixelated; }
+  .body { padding:14px 16px 16px; }
+  .body h2 { margin:0 0 4px; font-size:1.05rem; }
+  .body p { margin:0 0 12px; color:var(--muted); font-size:.92rem; }
+  .dl { display:flex; gap:10px; flex-wrap:wrap; }
+  a.btn { color:#fff; background:var(--accent); text-decoration:none; padding:6px 12px; border-radius:6px; font-size:.88rem; }
+  a.btn.alt { background:#2a3550; }
+  .warn { margin-top:36px; padding:16px; border-left:3px solid #e0a030; background:#1a1810; color:#e6d9b8; border-radius:6px; font-size:.92rem; }
+  footer { margin-top:28px; color:var(--muted); font-size:.82rem; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>IBM Boot Logos</h1>
+  <p class="sub">Retro IBM boot logos for PCs with AMI UEFI firmware. Each one is a 672×378 24-bit BMP, ready to use as a POST splash screen or a Windows boot logo. The patch script and the full instructions are in the <a href="README.md">README</a>.</p>
+
+  <div class="grid">
+    <div class="card">
+      <img src="logos/ibm-thinkpad/ibm_thinkpad_672x378.png" alt="Tilted red, green and blue IBM logo with ThinkPad wordmark on black">
+      <div class="body"><h2>IBM ThinkPad</h2><p>The classic tilted rainbow IBM with the ThinkPad wordmark.</p>
+        <div class="dl"><a class="btn" href="logos/ibm-thinkpad/ibm_thinkpad_672x378.bmp" download>BMP</a><a class="btn alt" href="logos/ibm-thinkpad/ibm_thinkpad_672x378.png" download>PNG</a></div></div>
+    </div>
+    <div class="card">
+      <img src="logos/ibm-8bar-aptiva/ibm_8bar_672x378.png" alt="Blue 8-bar IBM logo on black">
+      <div class="body"><h2>IBM 8-bar (Aptiva BIOS)</h2><p>The original bitmap, extracted from an IBM Aptiva 2137 BIOS and drawn 1:1.</p>
+        <div class="dl"><a class="btn" href="logos/ibm-8bar-aptiva/ibm_8bar_672x378.bmp" download>BMP</a><a class="btn alt" href="logos/ibm-8bar-aptiva/ibm_8bar_original_560x245.png" download>Original 560×245</a></div></div>
+    </div>
+    <div class="card">
+      <img src="logos/aptiva-2139/aptiva2139_672x378.png" alt="Navy Aptiva boot screen with several IBM logos">
+      <div class="body"><h2>Aptiva 2139 boot screen</h2><p>A rebuild of the IBM Aptiva 2139-E5Y startup screen, made with the genuine IBM bitmap.</p>
+        <div class="dl"><a class="btn" href="logos/aptiva-2139/aptiva2139_672x378.bmp" download>BMP</a><a class="btn alt" href="logos/aptiva-2139/aptiva2139_640x480.png" download>640×480 PNG</a></div></div>
+    </div>
+    <div class="card">
+      <img src="logos/ibm-navy/ibm_navy_672x378.png" alt="Light blue 8-bar IBM logo on navy">
+      <div class="body"><h2>IBM navy</h2><p>The 8-bar IBM on a navy background.</p>
+        <div class="dl"><a class="btn" href="logos/ibm-navy/ibm_navy_672x378.bmp" download>BMP</a><a class="btn alt" href="logos/ibm-navy/ibm_navy_672x378.png" download>PNG</a></div></div>
+    </div>
+  </div>
+
+  <div class="warn"><strong>Flashing firmware is at your own risk.</strong> The included <code>tools/patch_logo.py</code> was written for the ASUS PRIME B360-PLUS (BIOS 3101), and it refuses to run on other dumps unless you adapt it. Always keep a backup of your own BIOS region. If you want something safer, a Windows boot-logo tool such as HackBGRT changes the logo without touching the firmware.</div>
+
+  <footer>IBM, ThinkPad and Aptiva are trademarks of IBM and/or Lenovo. This is an unofficial fan project, with no affiliation or endorsement. The scripts are MIT licensed.</footer>
+</main>
+</body>
+</html>
