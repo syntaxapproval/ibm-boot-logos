@@ -1,0 +1,2 @@
+Rokkitt[wght].ttf: Rokkitt by Vernon Adams, SIL Open Font License 1.1 (github.com/google/fonts/tree/main/ofl/rokkitt).
+Used for the INTERNAL USE ONLY subtext (closest open match to the Rockwell/Memphis-style slab on the sweatshirt).
