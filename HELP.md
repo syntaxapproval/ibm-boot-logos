@@ -38,6 +38,8 @@ python -I tools/ibm_screens.py tools/screen_assets out
 | `New logo does not fit in the existing space` | Use a simpler image. Flat colours and large solid areas compress best. |
 | The logo is blank or the stock logo still shows | Your firmware's LZMA decoder may not accept an end marker. Re-encode without one (EDK2-style), or roll back from your backup. |
 | The flash tool refuses to write (for example FPT error 167) | BIOS Lock or flash protection is on. Some boards let you turn it off temporarily. Turn it back on afterwards. |
+| A ThinkPad shows a black screen where the logo should be | Set **Startup → Boot Mode** to **Quick**. **Diagnostic** replaces the splash with the POST text screen, so a perfectly good logo never appears. |
+| A ThinkPad shows the stock logo after a custom one was applied | The wrong slot is active. **LOGO1** shows when **Restart → OS Optimized Defaults** is *Disabled*, **LOGO2** when it is *Enabled*. Supply both, or match the file to the setting. |
 | The board won't POST | Flash your backup back. If that isn't possible, you'll need a hardware programmer or the board's BIOS FlashBack feature. |
 
 ## Credits
