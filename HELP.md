@@ -5,7 +5,7 @@
 - **Logo for a UEFI board or a Windows boot-logo tool:** use the `.bmp` from the logo's folder in `logos/`. Every BMP is 672×378, 24-bit and uncompressed.
 - **Just looking or sharing:** use the `.png` previews.
 - **Boot screens** (the `logos/` folders with five sizes): the `_672x378.bmp` is the 24-bit file for AMI firmware. The PNGs (640×480, 640×360, 1280×960 and 1920×1080) are for other firmware, boot-logo tools or wallpapers. Pick the size closest to your screen's native resolution.
-- **ThinkPads with Lenovo's BIOS updater (T430/T530 era):** the update package can apply a custom start-up image. Its `LOGO.TXT` gives the exact file name, format and size limit, so convert the PNG to match it.
+- **ThinkPads with Lenovo's BIOS updater (T430/T530 era):** the update package can apply a custom start-up image. Its `BIOS_LOGO.TXT` gives the limits: `LOGO1` less than 640×480, `LOGO2` less than 1366×768, 30 KB or less each, BMP/JPG/GIF, placed next to `WINUPTP.EXE`. A ready-made T530 kit is in `logos/thinkpad-bee-ibm-tilted/t530/`.
 
 ## The safe way: change the Windows boot logo only
 
