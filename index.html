@@ -7,68 +7,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg:#000; --card:#121212; --line:#2e2e2e; --fg:#f4f4f4; --muted:#a8a8a8;
-    --ibm-blue:#0f62fe; --ibm-blue-dark:#0043ce; --link:#78a9ff;
-    --code-bg:#262626;
-    --done-bg:#0e3a1f; --done-fg:#6fdc8c; --soon-bg:#3d2e00; --soon-fg:#f1c21b;
-    --warn-bg:#1c1a12; --warn-fg:#e6d9b8; --warn-line:#e0a030;
-  }
-  :root[data-theme="light"] {
-    --bg:#fff; --card:#f4f4f4; --line:#d0d0d0; --fg:#000; --muted:#525252;
-    --link:#0f62fe;
-    --code-bg:#e0e0e0;
-    --done-bg:#defbe6; --done-fg:#0e6027; --soon-bg:#fcf4d6; --soon-fg:#684e00;
-    --warn-bg:#fdf6e3; --warn-fg:#3d3200; --warn-line:#b28600;
-  }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 "IBM Plex Serif", Georgia, serif; }
-  main { max-width:1100px; margin:0 auto; padding:40px 16px 64px; }
-  h1, h2, h3, code, .tag { font-family:"IBM Plex Mono", ui-monospace, monospace; }
-  h1 { letter-spacing:.02em; margin:0 0 6px; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:600; }
-  h2.section { font-size:1.15rem; font-weight:600; margin:48px 0 16px; padding-bottom:8px; border-bottom:1px solid var(--line); }
-  .sub { color:var(--muted); margin:0 0 32px; max-width:70ch; }
-  .hero { margin:0 0 12px; display:grid; grid-template-columns:minmax(0,420px) 1fr; gap:24px; align-items:center; }
-  .hero img { width:100%; border:1px solid var(--line); display:block; }
-  .hero h2 { margin:0 0 8px; font-size:1.3rem; font-weight:600; }
-  .hero p { margin:0 0 14px; color:var(--muted); }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
-  .card { background:var(--card); overflow:hidden; border:1px solid var(--line); }
-  .card img { display:block; width:100%; aspect-ratio:672/378; object-fit:contain; background:#000; }
-  .body { padding:14px 16px 16px; }
-  .body h3 { margin:0 0 4px; font-size:1rem; font-weight:600; }
-  .body p { margin:0 0 12px; color:var(--muted); font-size:.92rem; }
-  .dl { display:flex; gap:10px; flex-wrap:wrap; }
-  .btn { color:#fff; background:var(--ibm-blue); text-decoration:none; padding:6px 12px; font-size:.88rem; font-weight:500; border:0; border-radius:0; font-family:inherit; cursor:pointer; }
-  .btn:hover { background:var(--ibm-blue-dark); }
-  .btn.alt { background:var(--ibm-blue-dark); }
-  .btn.alt:hover { background:#002d9c; }
-  .btn:focus-visible { outline:2px solid var(--fg); outline-offset:2px; }
-  .top { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
-  .theme-toggle { flex:none; margin-top:6px; font-family:"IBM Plex Mono", ui-monospace, monospace; }
-  .machines { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; }
-  .machine { background:var(--card); border:1px solid var(--line); padding:16px; }
-  .machine h3 { margin:0 0 6px; font-size:1rem; font-weight:600; }
-  .machine p { margin:0; color:var(--muted); font-size:.9rem; }
-  .tag { display:inline-block; font-size:.72rem; padding:2px 8px; margin-bottom:8px; }
-  .done { background:var(--done-bg); color:var(--done-fg); }
-  .soon { background:var(--soon-bg); color:var(--soon-fg); }
-  .warn { margin-top:40px; padding:16px; border-left:3px solid var(--warn-line); background:var(--warn-bg); color:var(--warn-fg); font-size:.92rem; }
-  code { font-size:.88em; background:var(--code-bg); padding:1px 5px; }
-  footer { margin-top:28px; color:var(--muted); font-size:.82rem; }
-  a { color:var(--link); }
-  @media (max-width:700px) { .hero { grid-template-columns:1fr; } }
-</style>
+<link rel="stylesheet" href="style.css">
 <script>
   try { if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}
 </script>
 </head>
 <body>
+<header class="banner"><a href="./"><img src="img/eye_bee_m_banner.png" width="974" height="312" alt="Eye-Bee-M: Paul Rand's eye, bee and M rebus for IBM"></a></header>
 <main>
   <div class="top">
     <h1>IBM Boot Logos</h1>
-    <button type="button" class="btn theme-toggle" id="theme-toggle" aria-pressed="false">Light mode</button>
+    <div class="top-actions"><a class="btn alt" href="credits.html">Credits</a><button type="button" class="btn" id="theme-toggle" aria-pressed="false">Light mode</button></div>
   </div>
   <p class="sub">Retro IBM boot logos and the tools to put them into AMI UEFI firmware. They've been tested on ThinkPads and ASUS desktop boards. Each logo is a 24-bit BMP, ready to use as a POST splash screen or as a Windows boot logo. The boot screens further down are drawn the way BIOS-era screens were: a few flat colours with blend shades, at 640×480, 640×360 and the 672×378 logo size, plus 1280×960 and 1920×1080. The full instructions are in the <a href="https://github.com/syntaxapproval/ibm-boot-logos#readme">README</a> and the <a href="https://github.com/syntaxapproval/ibm-boot-logos/blob/main/HELP.md">help file</a>.</p>
 
@@ -299,24 +248,8 @@
 
   <div class="warn"><strong>Flashing firmware is at your own risk.</strong> Keep a backup of your own BIOS. On boards with Boot Guard, first check that the logo isn't inside the protected area, or the board won't boot. If you'd rather not touch the firmware, HackBGRT can change the Windows boot logo instead.</div>
 
-  <footer>IBM, ThinkPad and Aptiva are trademarks of IBM and/or Lenovo. This is an unofficial fan project, with no affiliation or endorsement. The Eye-Bee-M artwork is by Paul Rand, via Wikimedia Commons (public domain, trademarked). The boot screens are fan tributes to Paul Rand's IBM work, the IBM PCjr, ThinkPad and OS/2. Lenovo and the Lenovo logos are trademarks of Lenovo, and OS/2 is a trademark of IBM. The INTERNAL USE ONLY subtext uses Rokkitt (SIL Open Font License). The scripts are MIT licensed.</footer>
+  <footer>IBM, ThinkPad and Aptiva are trademarks of IBM and/or Lenovo. This is an unofficial fan project, with no affiliation or endorsement. The Eye-Bee-M artwork is by Paul Rand, via Wikimedia Commons (public domain, trademarked). The boot screens are fan tributes to Paul Rand's IBM work, the IBM PCjr, ThinkPad and OS/2. Lenovo and the Lenovo logos are trademarks of Lenovo, and OS/2 is a trademark of IBM. The INTERNAL USE ONLY subtext uses Rokkitt (SIL Open Font License). The scripts are MIT licensed. <a href="credits.html">Credits</a>.</footer>
 </main>
-<script>
-  (function () {
-    var root = document.documentElement, btn = document.getElementById("theme-toggle");
-    function sync() {
-      var light = root.dataset.theme === "light";
-      btn.textContent = light ? "Dark mode" : "Light mode";
-      btn.setAttribute("aria-pressed", light ? "true" : "false");
-    }
-    btn.addEventListener("click", function () {
-      var light = root.dataset.theme !== "light";
-      if (light) root.dataset.theme = "light"; else delete root.dataset.theme;
-      try { localStorage.setItem("theme", light ? "light" : "dark"); } catch (e) {}
-      sync();
-    });
-    sync();
-  })();
-</script>
+<script src="theme.js"></script>
 </body>
 </html>

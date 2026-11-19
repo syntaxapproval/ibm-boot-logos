@@ -6,7 +6,7 @@ These are retro IBM boot logos, plus the tools to put them into AMI Aptio UEFI f
 
 *A ThinkPad X210Ai booting with Paul Rand's Eye-Bee-M rebus logo, flashed into its firmware.*
 
-**Gallery:** https://syntaxapproval.github.io/ibm-boot-logos/ · **Help and troubleshooting:** [HELP.md](HELP.md)
+**Gallery:** https://syntaxapproval.github.io/ibm-boot-logos/ · **Help and troubleshooting:** [HELP.md](HELP.md) · **Credits:** [credits page](https://syntaxapproval.github.io/ibm-boot-logos/credits.html)
 
 ## Logos
 
