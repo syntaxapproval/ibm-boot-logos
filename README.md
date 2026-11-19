@@ -15,7 +15,7 @@ These are retro IBM boot logos, plus the tools to put them into AMI Aptio UEFI f
 | Eye-Bee-M | `logos/eye-bee-m/` (580×156, 1160×312, 672×378) | Paul Rand's 1981 rebus. The 580×156 version matches the X210Ai's stock logo size, and 1160×312 is an exact 2× scale for high-resolution screens. |
 | IBM ThinkPad | `logos/ibm-thinkpad/ibm_thinkpad_672x378.bmp` | Tilted rainbow IBM with the ThinkPad wordmark |
 | IBM 8-bar (Aptiva BIOS) | `logos/ibm-8bar-aptiva/ibm_8bar_672x378.bmp` | The real bitmap pulled from an IBM Aptiva 2137 BIOS (Acer R05-E0), drawn 1:1 |
-| Aptiva 2139 boot screen | `logos/aptiva-2139/aptiva2139_672x378.bmp` | A rebuild of the Aptiva 2139-E5Y boot screen, made using the genuine IBM bitmap |
+| Aptiva 2139 boot screen | `logos/aptiva-2139/aptiva2139_672x378.bmp`, `aptiva2139_1024x768.bmp`, `aptiva2139_960x720.bmp` | A rebuild of the Aptiva 2139-E5Y boot screen, made using the genuine IBM bitmap. The 1024×768 and 960×720 versions are scaled up from 640×480 with nearest-neighbour, which keeps hard pixel edges, so they compress to about 10 KB (half the 672×378 version) and fill a 4:3 screen |
 | IBM navy | `logos/ibm-navy/ibm_navy_672x378.bmp` | 8-bar IBM on navy |
 
 All of these are 24-bit uncompressed BMPs, and each one has a `.png` preview next to it.
@@ -76,7 +76,7 @@ python -I tools/ibm_screens.py tools/screen_assets out thinkpad_bee_ibm_tilted  
 | Machine | Status | Notes |
 |---|---|---|
 | ThinkPad X210Ai | ✅ done | AMI Aptio V (Meteor Lake) with Boot Guard on. The logo file is outside the Boot Guard–protected area. I dumped the flash with flashrom, patched it, and flashed only the changed 4 KB blocks (`flashrom -l layout -i logo`). The stock logo is 580×156. |
-| ASUS PRIME B360-PLUS / B360M-A | ✅ done | Flashed with Intel FPT, writing only the logo window. The stock logo is 672×378. Eye-Bee-M is about 11 KB too big for the B360-PLUS logo space. The other logos fit. |
+| ASUS PRIME B360-PLUS / B360M-A | ✅ done | Flashed with Intel FPT, writing only the logo window. The stock logo is 672×378. Eye-Bee-M is about 11 KB too big for the B360-PLUS logo space. The other logos fit. The B360M-A (BIOS 2811) runs the Aptiva 2139 screen full screen at 1024×768 on a 4:3 monitor. **Boot → Boot Configuration → Boot Logo Display must be Auto**: on Full Screen this board showed a black screen instead. |
 | ThinkPad T530 | ✅ worked | Ran `thinkpad-bee-ibm-tilted` via the custom start-up image option in Lenovo's own BIOS update package (G4UJ41US), so no FPT, no dump and no unlocking. I later had to reflash the BIOS to sort out the Wi-Fi card whitelist, and the reflash replaced the logo with Lenovo's. My T530 now runs a custom Wi-Fi patch and I haven't re-applied the logo on top of it, so it shows the stock screen for now. The ready-to-use `LOGO1.GIF` (639×479) and `LOGO2.GIF` (1360×766) are in [`logos/thinkpad-bee-ibm-tilted/t530/`](logos/thinkpad-bee-ibm-tilted/t530/), both under the 30 KB limit. **Startup → Boot Mode must be Quick**: Diagnostic replaces the splash with POST text, so the logo looks like it failed. |
 | ThinkPad T480s | 🔜 coming soon | |
 

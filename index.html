@@ -49,8 +49,8 @@
     </div>
     <div class="card">
       <img src="logos/aptiva-2139/aptiva2139_672x378.png" alt="Navy Aptiva boot screen with several IBM logos">
-      <div class="body"><h3>Aptiva 2139 boot screen</h3><p>A rebuild of the IBM Aptiva 2139-E5Y startup screen, made with the genuine IBM bitmap.</p>
-        <div class="dl"><a class="btn" href="logos/aptiva-2139/aptiva2139_672x378.bmp" download>BMP</a><a class="btn alt" href="logos/aptiva-2139/aptiva2139_640x480.png" download>640×480 PNG</a></div></div>
+      <div class="body"><h3>Aptiva 2139 boot screen</h3><p>A rebuild of the IBM Aptiva 2139-E5Y startup screen, made with the genuine IBM bitmap. The 1024×768 and 960×720 versions fill a 4:3 screen, and their hard pixel edges compress to about half the size of the 672×378 one.</p>
+        <div class="dl"><a class="btn" href="logos/aptiva-2139/aptiva2139_672x378.bmp" download>BMP 672×378</a><a class="btn" href="logos/aptiva-2139/aptiva2139_1024x768.bmp" download>BMP 1024×768</a><a class="btn alt" href="logos/aptiva-2139/aptiva2139_960x720.bmp" download>BMP 960×720</a><a class="btn alt" href="logos/aptiva-2139/aptiva2139_640x480.png" download>640×480 PNG</a></div></div>
     </div>
     <div class="card">
       <img src="logos/ibm-navy/ibm_navy_672x378.png" alt="Light blue 8-bar IBM logo on navy">
@@ -234,7 +234,7 @@
   <h2 class="section">Machines</h2>
   <div class="machines">
     <div class="machine"><span class="tag done">done</span><h3>ThinkPad X210Ai</h3><p>AMI Aptio V with Boot Guard on. The logo file sits outside the Boot Guard–protected area, so it can be patched. It was patched the same way <code>patch_ami_logo.py</code> works, and only the changed 4 KB blocks were flashed with <code>flashrom -l layout -i logo</code>.</p></div>
-    <div class="machine"><span class="tag done">done</span><h3>ASUS PRIME B360-PLUS / B360M-A</h3><p>The firmware logo was flashed with Intel FPT, writing only the logo window. Every 672×378 logo fits except Eye-Bee-M, which is about 11 KB too big for this board's logo space.</p></div>
+    <div class="machine"><span class="tag done">done</span><h3>ASUS PRIME B360-PLUS / B360M-A</h3><p>The firmware logo was flashed with Intel FPT, writing only the logo window. Every 672×378 logo fits except Eye-Bee-M, which is about 11 KB too big for this board's logo space. The B360M-A now runs the Aptiva 2139 screen full screen at 1024×768. If the logo goes black, check that <code>Boot Logo Display</code> is set to <code>Auto</code>.</p></div>
     <div class="machine"><span class="tag done">worked</span><h3>ThinkPad T530</h3><p>Ran the ThinkPad × Rand bee screen (tilted IBM), applied with the custom start-up image option in Lenovo's own BIOS update package. No FPT, no dump, no unlocking. Set <code>Boot Mode</code> to <code>Quick</code>, or Diagnostic hides the splash.</p><p style="margin-top:8px">Any later BIOS flash replaces the logo. Mine went when I reflashed to sort out the Wi-Fi card whitelist. That T530 now runs a custom Wi-Fi patch, and I haven't re-applied the logo on top of it yet.</p><p style="margin-top:10px"><a class="btn" href="logos/thinkpad-bee-ibm-tilted/t530/LOGO1.GIF" download>LOGO1.GIF</a> <a class="btn" href="logos/thinkpad-bee-ibm-tilted/t530/LOGO2.GIF" download>LOGO2.GIF</a> <a class="btn alt" href="logos/thinkpad-bee-ibm-tilted/t530/README.txt">How to</a></p></div>
     <div class="machine"><span class="tag soon">coming soon</span><h3>ThinkPad T480s</h3><p>Next on the list.</p></div>
   </div>
