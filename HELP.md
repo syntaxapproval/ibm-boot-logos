@@ -40,6 +40,7 @@ python -I tools/ibm_screens.py tools/screen_assets out
 | The flash tool refuses to write (for example FPT error 167) | BIOS Lock or flash protection is on. Some boards let you turn it off temporarily. Turn it back on afterwards. |
 | A ThinkPad shows a black screen where the logo should be | Set **Startup → Boot Mode** to **Quick**. **Diagnostic** replaces the splash with the POST text screen, so a perfectly good logo never appears. |
 | A ThinkPad shows the stock logo after a custom one was applied | The wrong slot is active. **LOGO1** shows when **Restart → OS Optimized Defaults** is *Disabled*, **LOGO2** when it is *Enabled*. Supply both, or match the file to the setting. |
+| A ThinkPad's custom logo disappeared after a BIOS update, rollback or Wi-Fi whitelist fix | Every BIOS flash replaces the logo with the stock one, including a reflash to undo or redo a whitelist bypass. Re-apply the logo afterwards. If the BIOS now has a custom (modded) patch, Lenovo's updater may not be the right tool any more, so check before you flash, because it could overwrite the patch. |
 | The board won't POST | Flash your backup back. If that isn't possible, you'll need a hardware programmer or the board's BIOS FlashBack feature. |
 
 ## Credits

@@ -18,5 +18,10 @@ Limits from BIOS_LOGO.TXT: 30 KB or less per file; BMP, JPG or GIF; named LOGO1.
    LOGO1 shows when Restart -> OS Optimized Defaults is Disabled, LOGO2 when
    it is Enabled.
 
+Any later BIOS flash puts the stock logo back: an update, a rollback, or a
+reflash to change the Wi-Fi card whitelist. Re-apply the logo afterwards. If
+your BIOS carries a custom (modded) patch, running Lenovo's stock updater may
+overwrite that patch, so do the logo first or check your patch's instructions.
+
 Both GIFs are drawn directly at their size by tools/ibm_screens.py (the design
 plus 7 blend shades against the background, 73 colours), not downscaled.
