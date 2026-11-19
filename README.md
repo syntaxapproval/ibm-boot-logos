@@ -6,6 +6,10 @@ These are retro IBM boot logos, plus the tools to put them into AMI Aptio UEFI f
 
 *A ThinkPad X210Ai booting with Paul Rand's Eye-Bee-M rebus logo, flashed into its firmware.*
 
+![A CTX CRT monitor showing the Aptiva 2139 boot screen](photos/aptiva2139_ctx_crt.png)
+
+*The rebuilt IBM Aptiva 2139 boot screen at power-on, flashed into an ASUS desktop's firmware and shown on a CTX CRT.*
+
 **Gallery:** https://syntaxapproval.github.io/ibm-boot-logos/ · **Help and troubleshooting:** [HELP.md](HELP.md) · **Credits:** [credits page](https://syntaxapproval.github.io/ibm-boot-logos/credits.html)
 
 ## Logos
