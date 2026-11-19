@@ -48,6 +48,6 @@ python -I tools/ibm_screens.py tools/screen_assets out
 The full credits are on the [credits page](https://syntaxapproval.github.io/ibm-boot-logos/credits.html). In short:
 
 - The logo extraction, rebuilds, renderer and patch tools were made with help from **Claude** (Anthropic).
-- Fellow ThinkPad projects: [BootifulThinkpad](https://github.com/D1Advocatus/BootifulThinkpad) by D1Advocatus and [awesome-thinkpad-mods](https://github.com/mxxivcz/awesome-thinkpad-mods) by mxxivcz.
+- Fellow ThinkPad projects: [BootifulThinkpad](https://github.com/D1Advocatus/BootifulThinkpad) by D1Advocatus and [awesome-thinkpad-mods](https://github.com/mxxivcz/awesome-thinkpad-mods) by mxxivcz, and the r/thinkpad guide [Custom boot logo on a T480](https://old.reddit.com/r/thinkpad/comments/a57xhc/guide_custom_boot_logo_on_a_t480/).
 
 IBM, ThinkPad and Aptiva are trademarks of IBM and/or Lenovo. This is an unofficial fan project.
